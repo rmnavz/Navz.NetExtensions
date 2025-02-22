@@ -1,4 +1,8 @@
+mode: ContinuousDelivery
 workflow: GitHubFlow/v1
+increment: Inherit
+tag-prefix: '[vV]'
+commit-message-incrementing: Disabled
 
 branches:
   main:
@@ -7,6 +11,9 @@ branches:
     label: ''
     increment: Patch
     track-merge-target: false
+    prevent-increment:
+      of-merged-branch: true
+      when-current-commit-tagged: false
     source-branches: [ 'develop', 'release' ]
     tracks-release-branches: false
     is-release-branch: false
@@ -18,6 +25,9 @@ branches:
     label: alpha
     increment: Minor
     track-merge-target: true
+    prevent-increment:
+      of-merged-branch: false
+      when-current-commit-tagged: false
     source-branches: []
     tracks-release-branches: true
     is-release-branch: false
@@ -29,6 +39,9 @@ branches:
     label: beta
     increment: None
     track-merge-target: false
+    prevent-increment:
+      of-merged-branch: true
+      when-current-commit-tagged: false
     source-branches: [ 'develop', 'main', 'support', 'release' ]
     tracks-release-branches: false
     is-release-branch: true
@@ -62,6 +75,9 @@ branches:
     label: ''
     increment: Patch
     track-merge-target: false
+    prevent-increment:
+      of-merged-branch: true
+      when-current-commit-tagged: false
     source-branches: [ 'main' ]
     tracks-release-branches: false
     is-release-branch: false
