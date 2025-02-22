@@ -1,0 +1,57 @@
+# Ignore Visual Studio and Rider files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.ide
+
+# Ignore build output
+bin/
+obj/
+Debug/
+Release/
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+artifacts/
+
+# Ignore logs, database, and test results
+logs/
+*.log
+*.tlog
+*.cache
+*.db
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Ignore generated files
+*.g.cs
+*.g.i.cs
+*.Designer.cs
+
+# Ignore Resharper and Rider files
+*.DotSettings.user
+*.resharper/
+*_ReSharper.Caches/
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Ignore local environment files
+.env
+secrets.json
+appsettings.Development.json
+
+# Ignore GitVersion-generated files (but keep GitVersion.yml)
+version.json

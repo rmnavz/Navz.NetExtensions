@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Navz.NetExtensions.Linq</id>
+    <version></version>
+    <authors>rmnavz</authors>
+    <owners>rmnavz</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A collection of useful LINQ-related C# extensions.</description>
+    <tags>csharp extensions linq</tags>
+    <repository type="git" url="https://github.com/rmnavz/Navz.NetExtensions" />
+  </metadata>
+  <files>
+    <file src="bin/Release/net8.0/Navz.NetExtensions.Linq.dll" target="lib/net8.0/" />
+    <file src="bin/Release/net8.0/Navz.NetExtensions.Linq.xml" target="lib/net8.0/" />
+  </files>
+</package>

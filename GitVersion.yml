@@ -1,0 +1,14 @@
+mode: Mainline
+branches:
+  main:
+    tag: ''
+  develop:
+    tag: 'beta'
+  feature:
+    tag: 'alpha'
+  release:
+    tag: 'rc'
+  hotfix:
+    tag: 'hotfix'
+ignore:
+  sha: []
