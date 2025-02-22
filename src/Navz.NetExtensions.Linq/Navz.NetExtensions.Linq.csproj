@@ -5,15 +5,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <!-- Package Metadata -->
+    <!-- Automatically Set Version from GitVersion -->
     <Version>$(GitVersion_NuGetVersion)</Version>
+    <AssemblyVersion>$(GitVersion_AssemblySemVer)</AssemblyVersion>
+    <FileVersion>$(GitVersion_AssemblySemFileVer)</FileVersion>
+    <InformationalVersion>$(GitVersion_InformationalVersion)</InformationalVersion>
+
+    <!-- Package Metadata -->
     <Authors>rmnavz</Authors>
     <Description>A collection of useful LINQ-related C# extensions.</Description>
     <PackageTags>csharp extensions linq utility IQueryable</PackageTags>
     <RepositoryUrl>https://github.com/rmnavz/Navz.NetExtensions.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/rmnavz/Navz.NetExtensions</PackageProjectUrl>
-    <!-- <PackageIcon>icon.png</PackageIcon> -->
 
     <!-- NuGet Package Settings -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -21,10 +25,5 @@
     <!-- Include XML Documentation -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-
-  <!-- Optional: If you want to support multiple .NET versions -->
-  <!-- <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <TargetFrameworks>net8.0;net7.0;netstandard2.0</TargetFrameworks>
-  </PropertyGroup> -->
     
 </Project>

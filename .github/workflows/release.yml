@@ -1,0 +1,39 @@
+name: Release NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Install GitVersion
+      run: dotnet tool install --global GitVersion.Tool
+
+    - name: Determine Version
+      run: gitversion /updateprojectfiles
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build Solution
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Pack NuGet Package
+      run: dotnet pack --configuration Release --no-restore --output nupkg
+
+    - name: Publish to NuGet
+      run: dotnet nuget push "nupkg/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
