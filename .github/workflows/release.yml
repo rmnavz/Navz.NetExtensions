@@ -2,6 +2,8 @@ name: Release NuGet Package
 
 on:
   push:
+    paths:
+      - src/**
     branches:
       - main
       - develop

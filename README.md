@@ -4,7 +4,7 @@ A collection of useful C# extensions designed to simplify and reuse operations.
 
 [![NuGet](https://img.shields.io/nuget/v/Navz.NetExtensions.svg)](https://www.nuget.org/packages/Navz.NetExtensions)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Navz.NetExtensions.svg)](https://www.nuget.org/packages/Navz.NetExtensions)
-[![Build Status](https://github.com/rmnavz/Navz.NetExtensions/workflows/Build/badge.svg)](https://github.com/rmnavz/Navz.NetExtensions/actions)
+[![Build Status](https://github.com/rmnavz/Navz.NetExtensions/workflows/Build/badge.svg)](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
 
 ## 🚀 Features
 
