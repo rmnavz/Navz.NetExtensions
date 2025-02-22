@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <!-- Automatically Set Version from GitVersion -->
-    <Version>$(GitVersion_NuGetVersion)</Version>
+    <Version>$(GitVersion_SemVer)</Version>
     <AssemblyVersion>$(GitVersion_AssemblySemVer)</AssemblyVersion>
     <FileVersion>$(GitVersion_AssemblySemFileVer)</FileVersion>
     <InformationalVersion>$(GitVersion_InformationalVersion)</InformationalVersion>
