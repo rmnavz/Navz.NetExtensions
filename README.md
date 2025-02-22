@@ -1,28 +1,35 @@
-Navz.NetExtensions.Linq
+# Navz.NetExtensions
 
+A collection of useful C# extensions designed to simplify and reuse operations.
 
+[![NuGet](https://img.shields.io/nuget/v/Navz.NetExtensions.svg)](https://www.nuget.org/packages/Navz.NetExtensions)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Navz.NetExtensions.svg)](https://www.nuget.org/packages/Navz.NetExtensions)
+[![Build Status](https://github.com/rmnavz/Navz.NetExtensions/workflows/Build/badge.svg)](https://github.com/rmnavz/Navz.NetExtensions/actions)
 
+## 🚀 Features
 
-A collection of useful LINQ-related C# extensions designed to simplify and enhance data querying operations.
+This repository contains multiple NuGet packages, each focusing on specific extension categories:
 
-🚀 Features
+- **Navz.NetExtensions.Linq**: Extensions for LINQ operations.
+- More extensions to come...
 
-FilterBySearchKeyword: Perform keyword-based filtering on multiple properties.
+## 📦 Installation
 
-More extensions to come...
+You can install individual packages via NuGet. For example, to install the LINQ extensions:
 
-📦 Installation
-
-You can install this package via NuGet:
-
- dotnet add package Navz.NetExtensions.Linq
+```sh
+dotnet add package Navz.NetExtensions.Linq
+```
 
 Or via the NuGet Package Manager:
 
+```sh
 Install-Package Navz.NetExtensions.Linq
+```
 
-🛠 Usage
+## 🛠 Usage
 
+```csharp
 using Navz.NetExtensions.Linq.Extensions;
 
 var data = new List<TestEntity>
@@ -35,37 +42,61 @@ var data = new List<TestEntity>
 var result = data.FilterBySearchKeyword("green apple", x => x.Name).ToList();
 
 // Output: Matches only "Green Apple"
+```
 
-📂 Repository Structure
+```csharp
+var numbers = Enumerable.Range(1, 10);
+var batches = numbers.Batch(3).ToList();
 
+// Output: List of enumerables, each containing up to 3 elements
+```
+
+## 📂 Repository Structure
+
+```
 📦 Navz.NetExtensions
 ├── 📂 src
 │   ├── 📂 Navz.NetExtensions.Linq
 │   │   ├── QueryableExtensions.cs
 │   │   ├── Navz.NetExtensions.Linq.csproj
+│   ├── 📂 Navz.NetExtensions.String
+│   │   ├── StringExtensions.cs
+│   │   ├── Navz.NetExtensions.String.csproj
+│   ├── 📂 Navz.NetExtensions.Int
+│   │   ├── IntExtensions.cs
+│   │   ├── Navz.NetExtensions.Int.csproj
 ├── 📂 tests
 │   ├── 📂 Navz.NetExtensions.Linq.Tests
 │   │   ├── QueryableExtensionsTests.cs
 │   │   ├── Navz.NetExtensions.Linq.Tests.csproj
+│   ├── 📂 Navz.NetExtensions.String.Tests
+│   │   ├── StringExtensionsTests.cs
+│   │   ├── Navz.NetExtensions.String.Tests.csproj
+│   ├── 📂 Navz.NetExtensions.Int.Tests
+│   │   ├── IntExtensionsTests.cs
+│   │   ├── Navz.NetExtensions.Int.Tests.csproj
 ├── .gitignore
 ├── Navz.NetExtensions.Linq.nuspec
 ├── README.md
 ├── Navz.NetExtensions.sln
+```
 
-✅ Running Tests
+## ✅ Running Tests
 
 Run the unit tests with:
 
+```sh
 dotnet test
+```
 
-📜 License
+## 📜 License
 
-This project is licensed under the MIT License. See LICENSE for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to submit a PR or open an issue.
 
-⭐ Support
+## ⭐ Support
 
-If you find this project useful, please ⭐ it on GitHub!
+If you find this project useful, please ⭐ it on [GitHub](https://github.com/rmnavz/Navz.NetExtensions)!

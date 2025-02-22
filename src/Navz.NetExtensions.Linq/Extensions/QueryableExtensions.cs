@@ -84,4 +84,26 @@ public static class QueryableExtensions
         var lambda = Expression.Lambda<Func<T, bool>>(combinedPropertiesExpression, parameter);
         return query.Where(lambda);
     }
+
+
+    /// <summary>
+    /// Batches elements of the queryable sequence into smaller sequences of the specified size.
+    /// </summary>
+    /// <typeparam name="T">The entity type.</typeparam>
+    /// <param name="source">The queryable data source.</param>
+    /// <param name="size">The size of each batch.</param>
+    /// <returns>An IEnumerable of List of T representing batches of elements, ensuring immediate execution.</returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    public static IEnumerable<List<T>> Batch<T>(this IQueryable<T> source, int size)
+    {
+        if (source == null) throw new ArgumentNullException(nameof(source));
+        if (size <= 0) throw new ArgumentOutOfRangeException(nameof(size), "Batch size must be greater than zero.");
+
+        int count = source.Count();
+        for (int i = 0; i < count; i += size)
+        {
+            yield return source.Skip(i).Take(size).ToList(); // Materialize each batch immediately
+        }
+    }
 }
