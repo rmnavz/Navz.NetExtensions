@@ -3,9 +3,9 @@
 A collection of useful C# extensions designed to simplify and reuse operations.
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/rmnavz/Navz.NetExtensions/.github%2Fworkflows%2Fci.yml)
-![Release Status](https://img.shields.io/github/actions/workflow/status/rmnavz/Navz.NetExtensions/.github%2Fworkflows%2Frelease.yml)
+![Release Status](https://img.shields.io/github/actions/workflow/status/rmnavz/Navz.NetExtensions/.github%2Fworkflows%2Frelease.yml?label=release)
 
-**Navz.NetExtensions.Linq**
+**Navz.NetExtensions.Linq**: 
 [![NuGet](https://img.shields.io/nuget/v/Navz.NetExtensions.Linq.svg)](https://www.nuget.org/packages/Navz.NetExtensions.Linq)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Navz.NetExtensions.Linq.svg)](https://www.nuget.org/packages/Navz.NetExtensions.Linq)
 
