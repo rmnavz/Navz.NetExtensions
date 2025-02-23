@@ -14,7 +14,7 @@ A collection of useful C# extensions designed to simplify and reuse operations.
 This repository contains multiple NuGet packages, each focusing on specific extension categories:
 
 - **Navz.NetExtensions.Linq**: Extensions for LINQ operations.
-- More extensions to come...
+- More extensions to come... 
 
 ## 📦 Installation
 
