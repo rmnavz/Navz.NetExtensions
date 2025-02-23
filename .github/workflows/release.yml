@@ -2,11 +2,13 @@ name: Release NuGet Package
 
 on:
   push:
-    paths:
-      - src/**
     branches:
       - main
       - develop
+      - release/*
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   release:
@@ -27,7 +29,11 @@ jobs:
       run: dotnet tool install --global GitVersion.Tool
 
     - name: Determine Version
-      run: dotnet-gitversion /updateprojectfiles
+      id: gitversion
+      run: |
+        dotnet-gitversion /output json > version.json
+        VERSION=$(jq -r '.SemVer' version.json)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
 
     - name: Restore Dependencies
       run: dotnet restore
@@ -36,9 +42,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Pack NuGet Package
-      run: dotnet pack --configuration Release --no-restore --output nupkg
+      run: dotnet pack --configuration Release --no-restore --output nupkg /p:Version=${{ env.VERSION }}
 
-    - name: Publish to NuGet
+    - name: Publish to NuGet (Only for Tagged Releases)
+      if: startsWith(github.ref, 'refs/tags/v')
       run: dotnet nuget push "nupkg/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
