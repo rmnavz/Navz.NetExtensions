@@ -54,6 +54,32 @@ var batches = numbers.Batch(3).ToList();
 // Output: List of enumerables, each containing up to 3 elements
 ```
 
+```csharp
+var data = new List<TestEntity>
+    {
+        new() { Name = "Apple", Description = "Red fruit" },
+        new() { Name = "Banana", Description = "Yellow fruit" },
+        new() { Name = "Grape", Description = "Purple fruit" }
+    }.AsQueryable();
+
+var result = data.WhereIf(x => x.Name == "Apple", true).ToList();
+
+// Output: List of entity if condition is met, otherwise unmodified source.
+```
+
+```csharp
+var data = new List<TestEntity>
+    {
+        new() { Name = "Banana", Description = "Yellow fruit" },
+        new() { Name = "Apple", Description = "Red fruit" },
+        new() { Name = "Grape", Description = "Purple fruit" }
+    }.AsQueryable();
+
+var result = data.OrderByProperty("Name").ToList();
+
+// Output: List of entity ordered ascending or descending.
+```
+
 ## 📂 Repository Structure
 
 ```

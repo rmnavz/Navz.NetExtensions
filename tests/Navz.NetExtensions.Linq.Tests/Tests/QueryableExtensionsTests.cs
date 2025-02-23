@@ -73,6 +73,35 @@ public class QueryableExtensionsTests
     }
 
     [Fact]
+    public void WhereIf_ShouldApplyConditionally()
+    {
+        var data = new List<TestEntity>
+            {
+                new() { Name = "Apple", Description = "Red fruit" },
+                new() { Name = "Banana", Description = "Yellow fruit" },
+                new() { Name = "Grape", Description = "Purple fruit" }
+            }.AsQueryable();
+
+        var result = data.WhereIf(x => x.Name == "Apple", true).ToList();
+        Assert.Single(result);
+        Assert.Equal("Apple", result.First().Name);
+    }
+
+    [Fact]
+    public void WhereIf_ShouldNotApplyConditionally()
+    {
+        var data = new List<TestEntity>
+            {
+                new() { Name = "Apple", Description = "Red fruit" },
+                new() { Name = "Banana", Description = "Yellow fruit" },
+                new() { Name = "Grape", Description = "Purple fruit" }
+            }.AsQueryable();
+
+        var result = data.WhereIf(x => x.Name == "Apple", false).ToList();
+        Assert.Equal(data, result);
+    }
+
+    [Fact]
     public void Batch_SplitsCorrectly()
     {
         var numbers = Enumerable.Range(1, 10).AsQueryable();
@@ -97,5 +126,35 @@ public class QueryableExtensionsTests
     {
         var numbers = Enumerable.Range(1, 10).AsQueryable();
         Assert.Throws<ArgumentOutOfRangeException>(() => numbers.Batch(0).ToList());
+    }
+
+    [Fact]
+    public void OrderByProperty_ShouldSortAscending()
+    {
+        var data = new List<TestEntity>
+            {
+                new() { Name = "Banana", Description = "Yellow fruit" },
+                new() { Name = "Apple", Description = "Red fruit" },
+                new() { Name = "Grape", Description = "Purple fruit" }
+            }.AsQueryable();
+
+        var result = data.OrderByProperty("Name").ToList();
+
+        Assert.Equal("Apple", result.First().Name);
+    }
+
+    [Fact]
+    public void OrderByProperty_ShouldSortDescending()
+    {
+        var data = new List<TestEntity>
+            {
+                new() { Name = "Apple", Description = "Red fruit" },
+                new() { Name = "Grape", Description = "Purple fruit" },
+                new() { Name = "Banana", Description = "Yellow fruit" }
+            }.AsQueryable();
+
+        var result = data.OrderByProperty("Name", true).ToList();
+
+        Assert.Equal("Grape", result.First().Name);
     }
 }
