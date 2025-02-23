@@ -2,6 +2,15 @@ name: Release NuGet Package
 
 on:
   push:
+    tags:
+      - 'v*'
+    branches:
+      - main
+      - develop
+      - release/*
+
+on:
+  push:
     branches:
       - main
       - develop
